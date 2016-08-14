@@ -20,3 +20,5 @@ TRANSFORMATIONS = {
     "probabilities": run_probabilities,
     "features": run_features
 }
+
+DEFAULT_TRANSFORMATION = "probabilities"

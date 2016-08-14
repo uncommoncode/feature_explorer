@@ -17,5 +17,5 @@ def stable_pseudo_shuffle(strings):
         hashed_strings.append((md5.hexdigest(), string))
     return map(lambda t: t[1], sorted(hashed_strings, key=lambda t: t[0]))
 
-def chunker(seq, size):
-    return (seq[pos:pos + size] for pos in xrange(0, len(seq), size))
+def iter_chunks(sequence, chunk_size):
+    return (sequence[offset:offset + chunk_size] for offset in xrange(0, len(sequence), chunk_size))

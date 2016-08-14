@@ -27,11 +27,14 @@ def load_probabilities(path):
 def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--projection", choices=projection.PROJECTIONS, default=projection.DEFAULT_PROJECTION)
-    parser.add_argument("--landmark", choices=landmark.LANDMARKS, default=landmark.DEFAULT_LANDMARK)
-    parser.add_argument("--landmark_count", default=10)
-    parser.add_argument("--output_path", default="viz/static/json/data.json")
-    parser.add_argument("input_probs")
+    parser.add_argument("--projection", choices=projection.PROJECTIONS, default=projection.DEFAULT_PROJECTION,
+                        help="The dimensionality reduction technique")
+    parser.add_argument("--landmark", choices=landmark.LANDMARKS, default=landmark.DEFAULT_LANDMARK,
+                        help="The landmark creation technique")
+    parser.add_argument("--landmark_count", default=10, help="The number of landmarks to output")
+    parser.add_argument("--output_path", default="viz/static/json/creatures_data.json",
+                        help="The vizualization json file to output")
+    parser.add_argument("input_probs", help="The probabilities pickle created by run.py")
     args = parser.parse_args()
 
     run_projection = projection.PROJECTIONS[args.projection]

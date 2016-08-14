@@ -17,14 +17,19 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--classifier", choices=model.CLASSIFIERS.keys(), default=model.CLASSIFIERS.keys()[0])
-    parser.add_argument("--transformation", choices=transformation.TRANSFORMATIONS.keys(), required=True)
-    parser.add_argument("--sample", type=int, default=None)
-    parser.add_argument("--checkpoint_interval", default=5)
+    parser.add_argument("--classifier", choices=model.CLASSIFIERS.keys(), default=model.DEFAULT_CLASSIFIER,
+                        help="The classifier to run.")
+    parser.add_argument("--transformation", choices=transformation.TRANSFORMATIONS.keys(),
+                        default=transformation.DEFAULT_TRANSFORMATION,
+                        help="The transformation to apply to extract results from the classifier")
+    parser.add_argument("--sample", type=int, default=None,
+                        help="The number of images to run over. Leave out to run over all images.")
+    parser.add_argument("--checkpoint_interval", default=5, help="The interval to checkpoint data for output.")
     parser.add_argument("--gpu", action="store_true",
                         help="Enable GPU acceleration. This needs large amount of GPU RAM for some cases.")
-    parser.add_argument("input_dir")
-    parser.add_argument("output_dir")
+    parser.add_argument("input_dir", help="The directory of input images.")
+    parser.add_argument("output_dir", help="The directory to output the probabilities pickle file used by viz.py and "
+                                           "sample_results.py")
     args = parser.parse_args()
 
     if args.gpu:

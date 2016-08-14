@@ -85,3 +85,5 @@ CLASSIFIERS = {
     "imagenet": ImageNetClassifier,
     "places_205": Places205Classifier
 }
+
+DEFAULT_CLASSIFIER = "imagenet"
