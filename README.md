@@ -1,6 +1,8 @@
 # feature_explorer
 Deep Neural Network feature exploration tool providing insights into the feature space for an image corpus. 
 
+[![Feature Exploration Example](https://i.vimeocdn.com/video/638356958.webp?mw=500&mh=281)](https://vimeo.com/220368595)
+
 For example, this can help to justify the cost of labeling data. If the features provide relavant similarity projected in two dimensions, then the higher dimensional space should be useful for fine-tuning or training a new classifier with better labeled data.
 
 # Usage:
